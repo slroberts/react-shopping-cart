@@ -15,6 +15,10 @@ function App() {
     setCart([...cart, item]);
   };
 
+  const removeItem = (itemId) => {
+    setCart(cart.filter((item) => item.id !== itemId));
+  };
+
   return (
     <div className="App">
       <Navigation cart={cart} />
@@ -25,7 +29,7 @@ function App() {
       </Route>
 
       <Route path="/cart">
-        <ShoppingCart cart={cart} />
+        <ShoppingCart cart={cart} removeItem={removeItem} />
       </Route>
     </div>
   );
